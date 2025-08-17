@@ -44,7 +44,9 @@
     <Compile Include="ComunBD.cs" />
     <Compile Include="EstadoDAL.cs" />
     <Compile Include="InscripcionDAL.cs" />
+    <Compile Include="MembresiaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroAsistenciaDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BreakingGymEN\BreakingGymEN.csproj">

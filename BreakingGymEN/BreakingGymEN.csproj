@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="EstadoEN.cs" />
     <Compile Include="InscripcionEN.cs" />
+    <Compile Include="MembresiaEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroAsistenciaEN.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
