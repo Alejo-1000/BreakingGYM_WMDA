@@ -11,13 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using MahApps.Metro.Controls;
 namespace BreakingGymUI
 {
     /// <summary>
     /// Lógica de interacción para Membresia.xaml
     /// </summary>
-    public partial class Membresia : Window
+    public partial class Membresia : MetroWindow
     {
         public Membresia()
         {
