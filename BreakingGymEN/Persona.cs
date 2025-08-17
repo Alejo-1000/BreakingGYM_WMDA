@@ -16,14 +16,14 @@ namespace BreakingGymEN
         public string Apellido { get; set; }
         public string Celular {  get; set; }
         public Persona() { } // constructor vacio
-        public Persona(int Id, int IdRol, int IdTipoDocumento, string Documento, string Nombre, string Apelllido, string Celular)
+        public Persona(int Id, int IdRol, int IdTipoDocumento, string Documento, string Nombre, string Apellido, string Celular)
         {
             this.Id = Id;
             this.IdRol = IdRol;
             this.IdTipoDocumento = IdTipoDocumento;
             this.Documento = Documento;
             this.Nombre = Nombre;
-            this.Apellido = Apelllido;
+            this.Apellido = Apellido;
             this.Celular = Celular;
         }
     }

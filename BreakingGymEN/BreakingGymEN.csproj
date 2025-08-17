@@ -52,6 +52,7 @@
     <Compile Include="ServicioEN.cs" />
     <Compile Include="TipoDocumentoEN.cs" />
     <Compile Include="UsuarioActual.cs" />
+    <Compile Include="UsuarioEN.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
