@@ -46,6 +46,7 @@
     <Compile Include="MembresiaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroAsistenciaBL.cs" />
+    <Compile Include="ServicioBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BreakingGymDAL\BreakingGymDAL.csproj">
