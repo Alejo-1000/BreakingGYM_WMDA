@@ -10,20 +10,20 @@
     <Grid Background="#00000000">
         <DockPanel Height="27" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
 
-            <Button Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11"/>
+            <Button Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" Click="BtnInscripcion" />
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Content="Asistencia" Width="115" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button x:Name="btnAsistencia" Content="Asistencia" Width="100" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic" />
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Content="Membresías" Width="108" Background="#FF28628C" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button x:Name="btnMembresia" Content="Membresías" Width="108" Background="#FF28628C" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Content="Clientes" Width="98" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button x:Name="btnCliente" Content="Clientes" Width="98" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Content="Servicios" Width="101" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button x:Name="btnServicio" Content="Servicios" Width="101" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
             <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>
 
             <GridSplitter Background="#FFAEAEB2" Width="2"/>
             <Menu Width="100" Background="#FF28628C" Foreground="Black">
-                <MenuItem Header="OTROS" Background="#FF28628C" FontFamily="Arial Rounded MT Bold" FontSize="13" Foreground="White">
+                <MenuItem x:Name="btnOtros" Header="OTROS" Background="#FF28628C" FontFamily="Arial Rounded MT Bold" FontSize="13" Foreground="White">
                     <MenuItem Header="Usuarios" Background="#FF28628C"/>
                     <MenuItem Header="Reportes" Background="#FF28628C"/>
                     <MenuItem Header="Roles" Background="#FF28628C"/>
