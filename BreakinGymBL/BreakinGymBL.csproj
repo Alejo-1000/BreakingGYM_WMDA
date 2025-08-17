@@ -50,6 +50,7 @@
     <Compile Include="RolBL.cs" />
     <Compile Include="ServicioBL.cs" />
     <Compile Include="TipoDocumentoBL.cs" />
+    <Compile Include="UsuarioBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BreakingGymDAL\BreakingGymDAL.csproj">

@@ -51,6 +51,7 @@
     <Compile Include="RolDAL.cs" />
     <Compile Include="ServicioDAL.cs" />
     <Compile Include="TipoDocumentoDAL.cs" />
+    <Compile Include="UsuarioDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BreakingGymEN\BreakingGymEN.csproj">
