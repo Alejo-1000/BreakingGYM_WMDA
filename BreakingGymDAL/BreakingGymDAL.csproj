@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteDAL.cs" />
     <Compile Include="ComunBD.cs" />
     <Compile Include="EstadoDAL.cs" />
     <Compile Include="InscripcionDAL.cs" />
