@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
-
 namespace BreakingGymUI
 {
     /// <summary>
-    /// Lógica de interacción para InicioAdministrador.xaml
+    /// Lógica de interacción para InicioEmpleado.xaml
     /// </summary>
-    public partial class InicioAdministrador : MetroWindow
+    public partial class InicioEmpleado : MetroWindow
     {
-        public InicioAdministrador()
+        public InicioEmpleado()
         {
             InitializeComponent();
         }
