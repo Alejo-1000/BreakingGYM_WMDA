@@ -14,7 +14,7 @@
                 <GradientStop Color="#FF28628C" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid x:Name="dgMostrarEstado" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="393,88,45,36" RenderTransformOrigin="0.5,0.5" SelectedCellsChanged="dgMostrarEstado_SelectedCellsChanged">
+        <DataGrid x:Name="dgMostrarEstado" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="393,88,45,36" RenderTransformOrigin="0.5,0.5" >
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -24,17 +24,17 @@
                 </TransformGroup>
             </DataGrid.RenderTransform>
         </DataGrid>
-        <Button x:Name="BtnModificar" Content="" HorizontalAlignment="Left" Margin="298,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="BtnModificar_Click">
+        <Button x:Name="BtnModificar" Content="" HorizontalAlignment="Left" Margin="298,242,0,0" VerticalAlignment="Top" Width="50" Height="50">
             <Button.Background>
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnEliminar" Content="" HorizontalAlignment="Left" Margin="178,242,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnEliminar_Click">
+        <Button x:Name="BtnEliminar" Content="" HorizontalAlignment="Left" Margin="178,242,0,0" VerticalAlignment="Top" Height="50" Width="50">
             <Button.Background>
                 <ImageBrush ImageSource="/eliminar (2).png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnGuardar" Content="" HorizontalAlignment="Left" Margin="47,242,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="BtnGuardar_Click">
+        <Button x:Name="BtnGuardar" Content="" HorizontalAlignment="Left" Margin="47,242,0,0" VerticalAlignment="Top" Width="50" Height="50">
             <Button.Background>
                 <ImageBrush ImageSource="/mas.png"/>
             </Button.Background>
