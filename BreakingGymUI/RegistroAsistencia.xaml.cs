@@ -17,7 +17,7 @@ namespace BreakingGymUI
     /// <summary>
     /// Lógica de interacción para RegistroAsistencia.xaml
     /// </summary>
-    public partial class RegistroAsistencia : Window
+    public partial class RegistroAsistencia : MetroWindow
     {
         public RegistroAsistencia()
         {

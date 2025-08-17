@@ -22,11 +22,11 @@
             <Menu Background="{x:Null}" DockPanel.Dock="Right" Width="100" >
                 <MenuItem Header="SALIR" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
 
-                    <MenuItem Header="Salir del Sistema"/>
-                    <MenuItem Header="Cerrar Sesión"/>
+                    <MenuItem Header="Salir del Sistema" Background="#FF28628C"/>
+                    <MenuItem Header="Cerrar Sesión" Background="#FF28628C"/>
                 </MenuItem>
             </Menu>
-            <GridSplitter Background="#FFAEAEB2" DragDelta="GridSplitter_DragDelta" DockPanel.Dock="Right" Width="2"/>
+            <GridSplitter Background="#FFAEAEB2"  DockPanel.Dock="Right" Width="2"/>
 
         </DockPanel>
         <Label Content="¡Bienvenido a Inicio!" HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="402" FontFamily="Times New Roman" FontSize="45" Margin="0,91,0,0"/>

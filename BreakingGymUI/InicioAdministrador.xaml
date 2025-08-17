@@ -22,21 +22,21 @@
             <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>
 
             <GridSplitter Background="#FFAEAEB2" Width="2"/>
-            <Menu Width="100" Background="{x:Null}">
-                <MenuItem Header="OTROS" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
-                    <MenuItem Header="Usuarios"/>
-                    <MenuItem Header="Reportes"/>
-                    <MenuItem Header="Roles"/>
-                    <MenuItem Header="Estado de Inscripciones"/>
-                    <MenuItem Header="Documentos de identificación"/>
+            <Menu Width="100" Background="#FF28628C" Foreground="Black">
+                <MenuItem Header="OTROS" Background="#FF28628C" FontFamily="Arial Rounded MT Bold" FontSize="13" Foreground="White">
+                    <MenuItem Header="Usuarios" Background="#FF28628C"/>
+                    <MenuItem Header="Reportes" Background="#FF28628C"/>
+                    <MenuItem Header="Roles" Background="#FF28628C"/>
+                    <MenuItem Header="Estado de Inscripciones" Background="#FF28628C"/>
+                    <MenuItem Header="Documentos de identificación" Background="#FF28628C"/>
                 </MenuItem>
 
             </Menu>
             <Menu Background="{x:Null}" DockPanel.Dock="Right" Width="100" >
                 <MenuItem Header="SALIR" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
 
-                    <MenuItem Header="Salir del Sistema"/>
-                    <MenuItem Header="Cerrar Sesión"/>
+                    <MenuItem Header="Salir del Sistema" Background="#FF28628C"/>
+                    <MenuItem Header="Cerrar Sesión" Background="#FF28628C"/>
                 </MenuItem>
             </Menu>
 
