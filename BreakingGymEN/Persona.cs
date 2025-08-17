@@ -15,6 +15,7 @@ namespace BreakingGymEN
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Celular {  get; set; }
+        public Persona() { } // constructor vacio
         public Persona(int Id, int IdRol, int IdTipoDocumento, string Documento, string Nombre, string Apelllido, string Celular)
         {
             this.Id = Id;
@@ -23,7 +24,7 @@ namespace BreakingGymEN
             this.Documento = Documento;
             this.Nombre = Nombre;
             this.Apellido = Apelllido;
-            this.Celular = Celular; 
+            this.Celular = Celular;
         }
     }
     
