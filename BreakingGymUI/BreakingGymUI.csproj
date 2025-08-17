@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" />
     <None Remove="actualizar.png" />
     <None Remove="buscar.png" />
     <None Remove="editar-texto.png" />
@@ -27,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" />
     <Resource Include="actualizar.png" />
     <Resource Include="buscar.png" />
     <Resource Include="editar-texto.png" />

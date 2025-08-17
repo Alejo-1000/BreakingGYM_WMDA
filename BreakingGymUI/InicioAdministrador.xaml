@@ -1,0 +1,58 @@
+﻿<mah:MetroWindow x:Class="BreakingGymUI.InicioAdministrador"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:BreakingGymUI"
+        mc:Ignorable="d"
+        Title="Inicio Administrador" Height="450" Width="800">
+    <Grid Background="#00000000">
+        <DockPanel Height="27" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
+
+            <Button Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11"/>
+            <GridSplitter Width="2" Background="#FFAEAEB2"/>
+            <Button Content="Asistencia" Width="115" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <GridSplitter Width="2" Background="#FFAEAEB2"/>
+            <Button Content="Membresías" Width="108" Background="#FF28628C" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <GridSplitter Width="2" Background="#FFAEAEB2"/>
+            <Button Content="Clientes" Width="98" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <GridSplitter Width="2" Background="#FFAEAEB2"/>
+            <Button Content="Servicios" Width="101" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>
+
+            <GridSplitter Background="#FFAEAEB2" Width="2"/>
+            <Menu Width="100" Background="{x:Null}">
+                <MenuItem Header="OTROS" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
+                    <MenuItem Header="Usuarios"/>
+                    <MenuItem Header="Reportes"/>
+                    <MenuItem Header="Roles"/>
+                    <MenuItem Header="Estado de Inscripciones"/>
+                    <MenuItem Header="Documentos de identificación"/>
+                </MenuItem>
+
+            </Menu>
+            <Menu Background="{x:Null}" DockPanel.Dock="Right" Width="100" >
+                <MenuItem Header="SALIR" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
+
+                    <MenuItem Header="Salir del Sistema"/>
+                    <MenuItem Header="Cerrar Sesión"/>
+                </MenuItem>
+            </Menu>
+
+        </DockPanel>
+        <Label Content="¡Bienvenido a Inicio!" HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="402" FontFamily="Times New Roman" FontSize="45" Margin="0,91,0,0"/>
+        <Image HorizontalAlignment="Left" Height="184" Margin="310,166,0,0" VerticalAlignment="Top" Width="200" Source="/0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.339"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+
+    </Grid>
+</mah:MetroWindow>
