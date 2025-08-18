@@ -11,9 +11,12 @@
   <ItemGroup>
     <None Remove="0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" />
     <None Remove="actualizar.png" />
+    <None Remove="agregar-usuario.png" />
+    <None Remove="asistencia.png" />
     <None Remove="buscar.png" />
     <None Remove="editar-texto.png" />
     <None Remove="eliminar %282%29.png" />
+    <None Remove="inscripcion.png" />
     <None Remove="Login.jpg" />
     <None Remove="mas.png" />
     <None Remove="regreso.png" />
@@ -32,9 +35,12 @@
   <ItemGroup>
     <Resource Include="0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" />
     <Resource Include="actualizar.png" />
+    <Resource Include="agregar-usuario.png" />
+    <Resource Include="asistencia.png" />
     <Resource Include="buscar.png" />
     <Resource Include="editar-texto.png" />
     <Resource Include="eliminar (2).png" />
+    <Resource Include="inscripcion.png" />
     <Resource Include="Login.jpg" />
     <Resource Include="mas.png" />
     <Resource Include="regreso.png" />

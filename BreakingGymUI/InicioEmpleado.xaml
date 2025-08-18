@@ -8,14 +8,31 @@
         mc:Ignorable="d"
         Title="InicioEmpleado" Height="450" Width="800">
     <Grid>
-        <DockPanel Height="27" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
+        <DockPanel Height="38" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
 
-            <Button Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11"/>
-            <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Content="Asistencia" Width="115" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
-            <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Content="Clientes" Width="98" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button Width="148" Height="46" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="37" Width="113">
+                    <TextBlock Text="Inscripción" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Width="81" Height="20"/>
+                    <Image Source="/inscripcion.png" Width="32" Height="24" StretchDirection="DownOnly"/>
+                </StackPanel>
+            </Button>
 
+            <GridSplitter Width="2" Background="#FFAEAEB2"/>
+            <Button Width="149" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF8F8">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="101">
+                    <!-- Texto del botón -->
+                    <TextBlock Text="Asistencia" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                    <Image Source="/asistencia.png" Width="32" Height="30"/>
+                    <!-- Imagen al lado del texto -->
+                </StackPanel>
+            </Button>
+            <GridSplitter Width="2" Background="#FFAEAEB2"/>
+            <Button Width="151" Height="33" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="31" Width="93">
+                    <TextBlock Text="Cliente" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                    <Image Source="/agregar-usuario.png" Width="28" Height="18" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>
 
             <GridSplitter Background="#FFAEAEB2" Width="2"/>
@@ -32,5 +49,5 @@
         <Label Content="¡Bienvenido a Inicio!" HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="402" FontFamily="Times New Roman" FontSize="45" Margin="0,91,0,0"/>
         <Image Source="/0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" Margin="317,149,317,95"/>
     </Grid>
-   
+
 </mah:MetroWindow>
