@@ -72,5 +72,10 @@ namespace BreakingGymUI
             txtContrasenia.Clear(); // Limpiar contraseña después de intentar iniciar sesión
             txtCorreo.Clear();
         }
+
+        private void txtCorreo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

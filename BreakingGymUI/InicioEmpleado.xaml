@@ -13,24 +13,24 @@
             <Button Width="148" Height="46" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="37" Width="113">
                     <TextBlock Text="Inscripción" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Width="81" Height="20"/>
-                    <Image Source="/inscripcion.png" Width="32" Height="24" StretchDirection="DownOnly"/>
+                    <Image Source="/registro-en-linea.png" Width="32" Height="26" StretchDirection="DownOnly"/>
                 </StackPanel>
             </Button>
 
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
             <Button Width="149" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF8F8">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="101">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="111">
                     <!-- Texto del botón -->
                     <TextBlock Text="Asistencia" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
-                    <Image Source="/asistencia.png" Width="32" Height="30"/>
+                    <Image Source="/lista-de-contactos.png" Width="32" Height="30"/>
                     <!-- Imagen al lado del texto -->
                 </StackPanel>
             </Button>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Width="151" Height="33" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="31" Width="93">
+            <Button Width="151" Height="41" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="47" Width="93">
                     <TextBlock Text="Cliente" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
-                    <Image Source="/agregar-usuario.png" Width="28" Height="18" VerticalAlignment="Center"/>
+                    <Image Source="/avatar.png" Width="33" Height="30" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
             <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>

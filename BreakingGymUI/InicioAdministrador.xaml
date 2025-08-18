@@ -7,23 +7,53 @@
         xmlns:local="clr-namespace:BreakingGymUI"
         mc:Ignorable="d"
         Title="Inicio Administrador" Height="450" Width="800">
-    <Grid Background="#00000000">
-        <DockPanel Height="27" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
+    <Grid Background="#FFCDCDCD">
+        <DockPanel Height="40" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
 
-            <Button x:Name="BtnInscripcion" Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" />
+            <Button Width="148" Height="46" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="52" Width="133">
+                    <TextBlock Text="Inscripción" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Width="81" Height="20"/>
+                    <Image Source="/registro-en-linea.png" Width="36" Height="30" StretchDirection="DownOnly"/>
+                </StackPanel>
+            </Button>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button x:Name="btnAsistencia" Content="Asistencia" Width="100" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic" />
+            <Button Width="149" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF8F8">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="111">
+                    <!-- Texto del botón -->
+                    <TextBlock Text="Asistencia" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                    <Image Source="/lista-de-contactos.png" Width="32" Height="30"/>
+                    <!-- Imagen al lado del texto -->
+                </StackPanel>
+            </Button>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button x:Name="btnMembresia" Content="Membresías" Width="108" Background="#FF28628C" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button Width="135" Height="41" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="47" Width="115">
+                    <TextBlock Text="Membresia" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                    <Image Source="/tarifa.png" Width="34" Height="32" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button x:Name="btnCliente" Content="Clientes" Width="98" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button Width="107" Height="41" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="35" Width="93">
+                    <TextBlock Text="Cliente" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                    <Image Source="/avatar.png" Width="33" Height="30" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button x:Name="btnServicio" Content="Servicios" Width="101" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic"/>
+            <Button Width="124" Height="41" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="83" Width="112">
+                    <TextBlock Text="Servicio" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
+                    <Image Source="/gym-equipment.png" Width="53" Height="28" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
             <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>
 
             <GridSplitter Background="#FFAEAEB2" Width="2"/>
-            <Menu Width="100" Background="#FF28628C" Foreground="Black">
-                <MenuItem x:Name="btnOtros" Header="OTROS" Background="#FF28628C" FontFamily="Arial Rounded MT Bold" FontSize="13" Foreground="White">
+            <Menu Width="28" Background="#FF28628C" Foreground="Black" Height="29">
+                <MenuItem x:Name="BtnOtros" Header="" FontFamily="Arial Rounded MT Bold" FontSize="13" Foreground="White" Height="32" Width="31">
+                    <MenuItem.Background>
+                        <ImageBrush ImageSource="/opcion.png" AlignmentX="Center"/>
+                    </MenuItem.Background>
                     <MenuItem Header="Usuarios" Background="#FF28628C"/>
                     <MenuItem Header="Reportes" Background="#FF28628C"/>
                     <MenuItem Header="Roles" Background="#FF28628C"/>
@@ -32,8 +62,11 @@
                 </MenuItem>
 
             </Menu>
-            <Menu Background="{x:Null}" DockPanel.Dock="Right" Width="100" >
-                <MenuItem Header="SALIR" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
+            <Menu DockPanel.Dock="Right" Width="51" Height="40" >
+                <Menu.Background>
+                    <ImageBrush ImageSource="/boton.png"/>
+                </Menu.Background>
+                <MenuItem Header="" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
 
                     <MenuItem Header="Salir del Sistema" Background="#FF28628C"/>
                     <MenuItem Header="Cerrar Sesión" Background="#FF28628C"/>

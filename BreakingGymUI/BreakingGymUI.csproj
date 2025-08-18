@@ -12,14 +12,22 @@
     <None Remove="0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" />
     <None Remove="actualizar.png" />
     <None Remove="agregar-usuario.png" />
+    <None Remove="apoyo.png" />
     <None Remove="asistencia.png" />
+    <None Remove="avatar.png" />
+    <None Remove="boton.png" />
     <None Remove="buscar.png" />
     <None Remove="editar-texto.png" />
     <None Remove="eliminar %282%29.png" />
+    <None Remove="gym-equipment.png" />
     <None Remove="inscripcion.png" />
+    <None Remove="lista-de-contactos.png" />
     <None Remove="Login.jpg" />
     <None Remove="mas.png" />
+    <None Remove="opcion.png" />
+    <None Remove="registro-en-linea.png" />
     <None Remove="regreso.png" />
+    <None Remove="tarifa.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,14 +44,22 @@
     <Resource Include="0a5bcaaf-ccf2-49de-9d75-1f233391d1de.png" />
     <Resource Include="actualizar.png" />
     <Resource Include="agregar-usuario.png" />
+    <Resource Include="apoyo.png" />
     <Resource Include="asistencia.png" />
+    <Resource Include="avatar.png" />
+    <Resource Include="boton.png" />
     <Resource Include="buscar.png" />
     <Resource Include="editar-texto.png" />
     <Resource Include="eliminar (2).png" />
+    <Resource Include="gym-equipment.png" />
     <Resource Include="inscripcion.png" />
+    <Resource Include="lista-de-contactos.png" />
     <Resource Include="Login.jpg" />
     <Resource Include="mas.png" />
+    <Resource Include="opcion.png" />
+    <Resource Include="registro-en-linea.png" />
     <Resource Include="regreso.png" />
+    <Resource Include="tarifa.png" />
   </ItemGroup>
 
 </Project>

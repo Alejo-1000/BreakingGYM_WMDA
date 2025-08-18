@@ -11,10 +11,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Login.jpg"/>
         </Grid.Background>
-        <Button x:Name="btnIniciar" Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="474,307,0,0" VerticalAlignment="Top" Width="96" Background="#FF48A745" Click="btnIniciar_Click"/>
-        <Button x:Name="btnCerrar" Content="Salir" HorizontalAlignment="Left" Margin="598,307,0,0" VerticalAlignment="Top" Width="96" Background="#FFE02828"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="474,191,0,0" TextWrapping="Wrap" Text="Ingrese el correo" VerticalAlignment="Top" Width="184"/>
+        <Button x:Name="btnIniciar" Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="493,315,0,0" VerticalAlignment="Top" Width="211" Background="#FF63BCCE" Click="btnIniciar_Click" BorderBrush="{x:Null}" Height="26" Foreground="#FF130909" FontFamily="Arial Rounded MT Bold" FontSize="12"/>
+        <Button x:Name="btnCerrar" Content="Salir" HorizontalAlignment="Left" Margin="493,355,0,0" VerticalAlignment="Top" Width="211" Background="#FF8698A9" BorderBrush="{x:Null}" Foreground="#FF190606" FontFamily="Arial Rounded MT Bold" FontSize="12"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="493,191,0,0" TextWrapping="Wrap" Text="Ingrese el correo" VerticalAlignment="Top" Width="211" TextChanged="txtCorreo_TextChanged"/>
         <Label Content="Bienvenido" HorizontalAlignment="Left" Margin="539,141,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="20"/>
-        <TextBox x:Name="txtContrasenia" HorizontalAlignment="Left" Margin="474,244,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="184"/>
+        <TextBox x:Name="txtContrasenia" HorizontalAlignment="Left" Margin="493,244,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="211"/>
     </Grid>
 </mah:MetroWindow>
