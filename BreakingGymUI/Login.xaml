@@ -1,0 +1,20 @@
+﻿<mah:MetroWindow x:Class="BreakingGymUI.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:BreakingGymUI"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Login.jpg"/>
+        </Grid.Background>
+        <Button x:Name="btnIniciar" Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="474,307,0,0" VerticalAlignment="Top" Width="96" Background="#FF48A745"/>
+        <Button x:Name="btnCerrar" Content="Salir" HorizontalAlignment="Left" Margin="598,307,0,0" VerticalAlignment="Top" Width="96" Background="#FFE02828"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="474,191,0,0" TextWrapping="Wrap" Text="Ingrese el correo" VerticalAlignment="Top" Width="184" TextChanged="txtCorreo_TextChanged"/>
+        <Label Content="Bienvenido" HorizontalAlignment="Left" Margin="539,141,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="20"/>
+        <TextBox x:Name="txtContrasenia" HorizontalAlignment="Left" Margin="474,244,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="184" TextChanged="txtContrasenia_TextChanged"/>
+    </Grid>
+</mah:MetroWindow>
