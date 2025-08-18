@@ -3,6 +3,7 @@ using BreakinGymBL;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -172,6 +173,17 @@ namespace BreakingGymUI
             TxtId.Text = string.Empty;
             txtEstado.Text = string.Empty;
 
+        }
+
+        private void dgMostrarEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgMostrarEstado.SelectedItem != null)
+            {
+                // ✅ Casting correcto para objetos EstadoEN
+                EstadoEN estadoSeleccionado = (EstadoEN)dgMostrarEstado.SelectedItem;
+                TxtId.Text = estadoSeleccionado.Id.ToString();
+                txtEstado.Text = estadoSeleccionado.Nombre;
+            }
         }
     }
 }
