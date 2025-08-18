@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace BreakingGymUI
 {
     /// <summary>
     /// Lógica de interacción para Servicio.xaml
     /// </summary>
-    public partial class Servicio : Window
+    public partial class Servicio : MetroWindow
     {
         public Servicio()
         {

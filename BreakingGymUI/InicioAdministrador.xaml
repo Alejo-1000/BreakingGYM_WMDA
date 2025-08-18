@@ -10,7 +10,7 @@
     <Grid Background="#00000000">
         <DockPanel Height="27" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
 
-            <Button Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" Click="BtnInscripcion" />
+            <Button x:Name="BtnInscripcion" Content="Inscripciones" Width="138" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" />
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
             <Button x:Name="btnAsistencia" Content="Asistencia" Width="100" Background="#00000000" BorderBrush="Transparent" Foreground="#FFFDF9F9" FontFamily="Arial Rounded MT Bold" FontSize="11" FontStyle="Italic" />
             <GridSplitter Width="2" Background="#FFAEAEB2"/>

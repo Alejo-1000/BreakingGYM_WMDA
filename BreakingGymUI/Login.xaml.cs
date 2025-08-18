@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BreakingGymEN;
+using BreakinGymBL;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +14,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
 namespace BreakingGymUI
 {
@@ -23,6 +25,52 @@ namespace BreakingGymUI
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void btnIniciar_Click(object sender, RoutedEventArgs e)
+        {
+            string cuenta = txtCorreo.Text.Trim();
+            string contrasenia = txtContrasenia.Text.Trim();
+
+            // Validar campos vacíos
+            if (string.IsNullOrEmpty(cuenta) || string.IsNullOrEmpty(contrasenia))
+            {
+                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Intentar iniciar sesión
+            UsuarioEN usuario = UsuarioBL.IniciarSesion(cuenta, contrasenia);
+            if (usuario != null)
+            {
+                // ✅ Guardar cuenta del usuario logueado
+                UsuarioActual.Cuenta = usuario.Cuenta;
+                UsuarioActual.UsuarioLogueado = usuario;
+
+                if (usuario.IdRol == 1) // Administrador
+                {
+                    InicioAdministrador ventanaAdmi = new InicioAdministrador();
+                    ventanaAdmi.Show();
+                    this.Close(); // Cerrar ventana de login
+                }
+                else if (usuario.IdRol == 2) // Empleado
+                {
+                    InicioEmpleado ventanaEmpleado = new InicioEmpleado();
+                    ventanaEmpleado.Show();
+                    this.Close(); // Cerrar ventana de login
+                }
+                else
+                {
+                    MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            txtContrasenia.Clear(); // Limpiar contraseña después de intentar iniciar sesión
+            txtCorreo.Clear();
         }
     }
 }
