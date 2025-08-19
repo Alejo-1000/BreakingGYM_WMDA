@@ -161,15 +161,23 @@ namespace BreakingGymUI
 
         private void dgInscripcion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var items = dgInscripcion.ItemsSource as System.Collections.ICollection;
-            if (items != null && items.Count > 0)
+            if (dgInscripcion.SelectedItem != null)
             {
-                txtId.Text = dgInscripcion.CurrentRow.Cells["Id"].Value.ToString();
-                cbCliente.Text = dgInscripcion.CurrentRow.Cells["IdCliente"].Value.ToString();
-                cbMembresia.Text = dgInscripcion.CurrentRow.Cells["IdMembresia"].Value.ToString();
-                cbEstado.Text = dgInscripcion.CurrentRow.Cells["IdEstado"].Value.ToString();
-                dpInicio.Text = dgInscripcion.CurrentRow.Cells["FechaInscripcion"].Value.ToString();
-                dpVencimiento.Text = dgInscripcion.CurrentRow.Cells["FechaVencimiento"].Value.ToString();
+                var inscripcion = dgInscripcion.SelectedItem as InscripcionEN;
+
+                if (inscripcion != null)
+                {
+                    txtId.Text = inscripcion.Id.ToString();
+
+                    // si los ComboBox están enlazados a listas, mejor usar SelectedValue
+                    cbCliente.SelectedValue = inscripcion.IdCliente;
+                    cbMembresia.SelectedValue = inscripcion.IdMembresia;
+                    cbEstado.SelectedValue = inscripcion.IdEstado;
+
+                    // con DatePicker es mejor usar SelectedDate
+                    dpInicio.SelectedDate = inscripcion.FechaInscripcion;
+                    dpVencimiento.SelectedDate = inscripcion.FechaVencimiento;
+                }
             }
         }
     }
