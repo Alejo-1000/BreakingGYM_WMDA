@@ -22,6 +22,8 @@ namespace BreakingGymUI
     /// </summary>
     public partial class Login : MetroWindow
     {
+        private bool mostrando = false;
+
         public Login()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace BreakingGymUI
         private void btnIniciar_Click(object sender, RoutedEventArgs e)
         {
             string cuenta = txtCorreo.Text.Trim();
-            string contrasenia = txtContrasenia.Text.Trim();
+            string contrasenia = txtContrasenia.Password.Trim();
 
             // Validar campos vacíos
             if (string.IsNullOrEmpty(cuenta) || string.IsNullOrEmpty(contrasenia))
@@ -76,6 +78,36 @@ namespace BreakingGymUI
         private void txtCorreo_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void btnMostrar_Click(object sender, RoutedEventArgs e)
+        {
+            if (mostrando)
+            {
+                // Ocultar contraseña
+                txtContrasenia.Password = txtVisible.Text;
+                txtContrasenia.Visibility = Visibility.Visible;
+                txtVisible.Visibility = Visibility.Collapsed;
+
+                // Cambiar a imagen de ojo abierto
+                btnMostrar.Background = new ImageBrush(
+                    new BitmapImage(new Uri("pack://application:,,,/ojo_abierto.png")));
+
+                mostrando = false;
+            }
+            else
+            {
+                // Mostrar contraseña
+                txtVisible.Text = txtContrasenia.Password;
+                txtVisible.Visibility = Visibility.Visible;
+                txtContrasenia.Visibility = Visibility.Collapsed;
+
+                // Cambiar a imagen de ojo cerrado
+                btnMostrar.Background = new ImageBrush(
+                    new BitmapImage(new Uri("pack://application:,,,/ojo_cerrado.png")));
+
+                mostrando = true;
+            }
         }
     }
 }

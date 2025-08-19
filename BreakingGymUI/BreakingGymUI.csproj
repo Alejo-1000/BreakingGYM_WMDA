@@ -24,6 +24,8 @@
     <None Remove="lista-de-contactos.png" />
     <None Remove="Login.jpg" />
     <None Remove="mas.png" />
+    <None Remove="ojo_abierto.png" />
+    <None Remove="ojo_cerrado.png" />
     <None Remove="opcion.png" />
     <None Remove="registro-en-linea.png" />
     <None Remove="regreso.png" />
@@ -56,6 +58,8 @@
     <Resource Include="lista-de-contactos.png" />
     <Resource Include="Login.jpg" />
     <Resource Include="mas.png" />
+    <Resource Include="ojo_abierto.png" />
+    <Resource Include="ojo_cerrado.png" />
     <Resource Include="opcion.png" />
     <Resource Include="registro-en-linea.png" />
     <Resource Include="regreso.png" />
