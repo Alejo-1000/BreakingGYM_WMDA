@@ -14,17 +14,17 @@
                 <GradientStop Color="#FF28628C" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="btnGuardar" Content="" HorizontalAlignment="Left" Margin="480,338,0,0" VerticalAlignment="Top" Height="50" Width="50">
+        <Button x:Name="btnGuardar" Content="" HorizontalAlignment="Left" Margin="480,338,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnGuardar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/mas.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Margin="587,338,0,0" VerticalAlignment="Top" Height="50" Width="50">
+        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Margin="587,338,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnEliminar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/eliminar (2).png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Margin="692,338,0,0" VerticalAlignment="Top" Height="50" Width="50">
+        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Margin="692,338,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnModificar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
@@ -34,7 +34,7 @@
                 <ImageBrush ImageSource="/buscar.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnRegresar" Content="" HorizontalAlignment="Left" Margin="740,10,0,0" VerticalAlignment="Top" Height="50" Width="50">
+        <Button x:Name="btnRegresar" Content="" HorizontalAlignment="Left" Margin="740,10,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnRegresar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/regreso.png"/>
             </Button.Background>
@@ -53,14 +53,14 @@
         <Label Content="Usuario" HorizontalAlignment="Center" Margin="0,17,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="36"/>
         <Label Content="Buscar Usuario" HorizontalAlignment="Left" Margin="162,73,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="18"/>
         <Label Content="Id" HorizontalAlignment="Left" Margin="186,18,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,76,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.524,0.465"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,292,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="221,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58" Height="6"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,206,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="101,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="261" Height="27"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,249,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,119,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="39,153,369,10"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="577,76,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.524,0.465"/>
+        <TextBox x:Name="txtContrasenia" HorizontalAlignment="Left" Margin="577,292,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="221,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58" Height="6"/>
+        <TextBox x:Name="txtBuscarUsuario" HorizontalAlignment="Left" Margin="101,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="261" Height="27"/>
+        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Margin="577,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCuenta" HorizontalAlignment="Left" Margin="577,249,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="577,119,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dgMostrarUsuario" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="39,153,369,10" SelectionChanged="dgMostrarUsuario_SelectionChanged"/>
+        <ComboBox x:Name="cbxIdRol" HorizontalAlignment="Left" Margin="577,207,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </mah:MetroWindow>

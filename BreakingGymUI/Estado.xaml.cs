@@ -168,12 +168,6 @@ namespace BreakingGymUI
 
         }
 
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            TxtId.Text = string.Empty;
-            txtEstado.Text = string.Empty;
-
-        }
 
         private void dgMostrarEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

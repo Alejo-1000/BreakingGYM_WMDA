@@ -14,7 +14,7 @@
                 <GradientStop Color="#FF28628C" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid x:Name="dgMostrarEstado" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="393,88,45,33" RenderTransformOrigin="0.5,0.5" SelectionChanged="dgMostrarEstado_SelectionChanged" >
+        <DataGrid x:Name="dgMostrarEstado" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="410,88,28,33" RenderTransformOrigin="0.5,0.5" SelectionChanged="dgMostrarEstado_SelectionChanged" >
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
