@@ -23,5 +23,28 @@ namespace BreakingGymUI
         {
             InitializeComponent();
         }
+
+        private void btnInscripcion_Click(object sender, RoutedEventArgs e)
+        {
+            Inscripcion inscripcion = new Inscripcion();
+            inscripcion.Show();
+        }
+
+        private void btnAsistencia_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroAsistencia asistencia = new RegistroAsistencia();
+            asistencia.Show();
+        }
+
+        private void btnCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            cliente.Show();
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

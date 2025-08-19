@@ -10,7 +10,7 @@
     <Grid>
         <DockPanel Height="38" LastChildFill="False" VerticalAlignment="Top" Background="#FF28628C">
 
-            <Button Width="148" Height="46" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Button x:Name="btnInscripcion" Width="148" Height="46" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnInscripcion_Click">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="37" Width="113">
                     <TextBlock Text="Inscripción" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Width="81" Height="20"/>
                     <Image Source="/registro-en-linea.png" Width="32" Height="26" StretchDirection="DownOnly"/>
@@ -18,7 +18,7 @@
             </Button>
 
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Width="149" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF8F8">
+            <Button x:Name="btnAsistencia" Width="149" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFFF8F8" Click="btnAsistencia_Click">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="111">
                     <!-- Texto del botón -->
                     <TextBlock Text="Asistencia" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
@@ -27,7 +27,7 @@
                 </StackPanel>
             </Button>
             <GridSplitter Width="2" Background="#FFAEAEB2"/>
-            <Button Width="151" Height="41" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+            <Button x:Name="btnCliente" Width="151" Height="41" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="btnCliente_Click">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="47" Width="93">
                     <TextBlock Text="Cliente" FontSize="14" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center" FontFamily="Arial Rounded MT Bold"/>
                     <Image Source="/avatar.png" Width="33" Height="30" VerticalAlignment="Center"/>
@@ -36,11 +36,13 @@
             <GridSplitter Background="#FFAEAEB2" DockPanel.Dock="Right" Width="2"/>
 
             <GridSplitter Background="#FFAEAEB2" Width="2"/>
-            <Menu Background="{x:Null}" DockPanel.Dock="Right" Width="100" >
-                <MenuItem Header="SALIR" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13">
-
-                    <MenuItem Header="Salir del Sistema" Background="#FF28628C"/>
-                    <MenuItem Header="Cerrar Sesión" Background="#FF28628C"/>
+            <Menu DockPanel.Dock="Right" Width="43" >
+                <Menu.Background>
+                    <ImageBrush ImageSource="/boton.png"/>
+                </Menu.Background>
+                <MenuItem Header="" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13" Height="40" Width="42" Background="{x:Null}">
+                    <MenuItem x:Name="btnSalir" Header="Salir del Sistema" Background="#FF28628C" Click="btnSalir_Click" />
+                    <MenuItem x:Name="btnCerrarSesion" Header="Cerrar Sesión" Background="#FF28628C"/>
                 </MenuItem>
             </Menu>
             <GridSplitter Background="#FFAEAEB2"  DockPanel.Dock="Right" Width="2"/>

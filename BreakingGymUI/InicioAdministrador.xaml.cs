@@ -91,5 +91,10 @@ namespace BreakingGymUI
             Application.Current.Shutdown();
 
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
