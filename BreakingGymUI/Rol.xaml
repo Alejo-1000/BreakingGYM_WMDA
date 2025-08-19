@@ -15,11 +15,11 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="63,129,183,57"/>
+        <DataGrid x:Name="dgMostrarRol" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="63,129,183,57"/>
         <Label Content="Rol" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Rounded MT Bold"/>
-        <TextBox x:Name="txtRol" HorizontalAlignment="Left" Margin="166,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="405"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="166,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="405"/>
         <Label Content="Rol" HorizontalAlignment="Left" Margin="114,83,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="14" Foreground="White"/>
-        <Button x:Name="btnGuardar" Content="" HorizontalAlignment="Left" Margin="682,121,0,0" VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}">
+        <Button x:Name="btnGuardar" Content="" HorizontalAlignment="Left" Margin="682,121,0,0" VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" Click="btnGuardar_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,12 +32,12 @@
                 <ImageBrush ImageSource="/mas.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Margin="681,210,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Margin="681,210,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}" Click="btnEliminar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/eliminar (2).png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Margin="681,297,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Margin="681,297,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}" Click="btnModificar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
@@ -47,6 +47,7 @@
                 <ImageBrush ImageSource="/regreso.png"/>
             </Button.Background>
         </Button>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="26,12,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="59" TextChanged="txtId_TextChanged"/>
 
     </Grid>
 </mah:MetroWindow>
