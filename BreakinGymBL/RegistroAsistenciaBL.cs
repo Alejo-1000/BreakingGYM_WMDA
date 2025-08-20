@@ -14,17 +14,13 @@ namespace BreakinGymBL
         {
             return RegistroAsistenciaDAL.MostrarAsistencia();
         }
-        public static List<RegistroAsistenciaEN> BuscarAsistencia(string fechaAsistencia)
+        public List<RegistroAsistenciaEN> BuscarAsistencia(DateTime fechaAsistencia)
         {
             return RegistroAsistenciaDAL.BuscarAsistencia(fechaAsistencia);
         }
-        public int GuardarInscripcion(RegistroAsistenciaEN pAsistenciasEN)
+        public int RegistrarAsistenciaPorTarjeta(string tarjetaRFID)
         {
-            return RegistroAsistenciaDAL.AgregarAsistencia(pAsistenciasEN);
-        }
-        public int ModificarAsistencia(RegistroAsistenciaEN pinscripcionEN)
-        {
-            return RegistroAsistenciaDAL.ModificarAsistencia(pinscripcionEN);
+            return RegistroAsistenciaDAL.RegistrarAsistenciaPorTarjeta(tarjetaRFID);
         }
     }
 }

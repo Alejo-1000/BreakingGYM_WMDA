@@ -24,6 +24,7 @@ namespace BreakingGymDAL
                 _comando.Parameters.Add(new SqlParameter("@Nombre", pclienteEN.Nombre));
                 _comando.Parameters.Add(new SqlParameter("@Apellido", pclienteEN.Apellido));
                 _comando.Parameters.Add(new SqlParameter("@Celular", pclienteEN.Celular));
+                _comando.Parameters.Add(new SqlParameter("@TarjetaRFID", pclienteEN.TarjetaRFID));
                 int resultado = _comando.ExecuteNonQuery();
                 _conn.Close();
                 return resultado;
@@ -61,6 +62,7 @@ namespace BreakingGymDAL
                 _comando.Parameters.Add(new SqlParameter("@Nombre", pclienteEN.Nombre));
                 _comando.Parameters.Add(new SqlParameter("@Apellido", pclienteEN.Apellido));
                 _comando.Parameters.Add(new SqlParameter("@Celular", pclienteEN.Celular));
+                _comando.Parameters.Add(new SqlParameter("@TarjetaRFID", pclienteEN.TarjetaRFID));
                 int resultado = _comando.ExecuteNonQuery();
                 _conn.Close();
                 return resultado;

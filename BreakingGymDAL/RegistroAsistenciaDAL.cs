@@ -17,7 +17,7 @@ namespace BreakingGymDAL
             using (IDbConnection _conn = ComunBD.ObtenerConexion(ComunBD.TipoBD.SqlServer))
             {
                 _conn.Open();
-                SqlCommand _comando = new SqlCommand("MostrarAsistencia", _conn as SqlConnection);
+                SqlCommand _comando = new SqlCommand("MostrarAsistenciasConCliente", _conn as SqlConnection);
                 _comando.CommandType = CommandType.StoredProcedure;
                 IDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
@@ -26,14 +26,18 @@ namespace BreakingGymDAL
                     {
                         Id = _reader.GetInt32(0),
                         IdCliente = _reader.GetInt32(1),
-                        FechaAsistencia = _reader.GetDateTime(2)
+                        Nombre = _reader.GetString(2),
+                        Apellido = _reader.GetString(3),
+                        TarjetaRFID = _reader.GetString(4),
+                        FechaAsistencia = _reader.GetDateTime(5),
+                        HoraEntrada = (TimeSpan)_reader.GetValue(6)  // ← cambio aquí
                     });
                 }
                 _conn.Close();
             }
             return _Lista;
         }
-        public static List<RegistroAsistenciaEN> BuscarAsistencia(String fechaAsistencia)
+        public static List<RegistroAsistenciaEN> BuscarAsistencia(DateTime fechaAsistencia)
         {
             List<RegistroAsistenciaEN> _Lista = new List<RegistroAsistenciaEN>();
             using (IDbConnection _conn = ComunBD.ObtenerConexion(ComunBD.TipoBD.SqlServer))
@@ -41,7 +45,10 @@ namespace BreakingGymDAL
                 _conn.Open();
                 SqlCommand _comando = new SqlCommand("BuscarAsistencia", _conn as SqlConnection);
                 _comando.CommandType = CommandType.StoredProcedure;
+
+                // ✅ Ahora el parámetro se pasa como DateTime
                 _comando.Parameters.Add(new SqlParameter("@fechaAsistencia", fechaAsistencia));
+
                 IDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -49,39 +56,25 @@ namespace BreakingGymDAL
                     {
                         Id = _reader.GetInt32(0),
                         IdCliente = _reader.GetInt32(1),
-                        FechaAsistencia = _reader.GetDateTime(2)
+                        Nombre = _reader.GetString(2),
+                        Apellido = _reader.GetString(3),
+                        TarjetaRFID = _reader.GetString(4),
+                        FechaAsistencia = _reader.GetDateTime(5),
+                        HoraEntrada = (TimeSpan)_reader.GetValue(6)
                     });
                 }
                 _conn.Close();
             }
             return _Lista;
         }
-        public static int AgregarAsistencia(RegistroAsistenciaEN pAsistenciasEN)
+        public static int RegistrarAsistenciaPorTarjeta(string tarjetaRFID)
         {
             using (IDbConnection _conn = ComunBD.ObtenerConexion(ComunBD.TipoBD.SqlServer))
             {
                 _conn.Open();
-                SqlCommand _comando = new SqlCommand("RegistrarAsistencia ", _conn as SqlConnection);
+                SqlCommand _comando = new SqlCommand("RegistrarAsistenciaPorTarjeta", _conn as SqlConnection);
                 _comando.CommandType = CommandType.StoredProcedure;
-                _comando.Parameters.Add(new SqlParameter("@IdCliente", pAsistenciasEN.IdCliente));
-                _comando.Parameters.Add(new SqlParameter("@FechaAsistencia", pAsistenciasEN.FechaAsistencia));
-                int resultado = _comando.ExecuteNonQuery();
-                _conn.Close();
-                return resultado;
-            }
-        }
-
-        public static int ModificarAsistencia(RegistroAsistenciaEN pAsistenciasEN)
-        {
-            using (IDbConnection _conn = ComunBD.ObtenerConexion(ComunBD.TipoBD.SqlServer))
-            {
-                _conn.Open();
-                SqlCommand _comando = new SqlCommand("ModificarAsistencia", _conn as SqlConnection);
-                _comando.CommandType = CommandType.StoredProcedure;
-                _comando.Parameters.Add(new SqlParameter("@Id", pAsistenciasEN.Id));
-                _comando.Parameters.Add(new SqlParameter("@IdCliente", pAsistenciasEN.IdCliente));
-                _comando.Parameters.Add(new SqlParameter("@FechaVencimiento", pAsistenciasEN.FechaAsistencia));
-
+                _comando.Parameters.Add(new SqlParameter("@TarjetaRFID", tarjetaRFID));
                 int resultado = _comando.ExecuteNonQuery();
                 _conn.Close();
                 return resultado;

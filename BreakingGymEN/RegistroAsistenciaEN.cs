@@ -10,6 +10,10 @@ namespace BreakingGymEN
     {
         public int Id { get; set; }
         public int IdCliente { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string TarjetaRFID { get; set; }
         public DateTime FechaAsistencia { get; set; }
+        public TimeSpan HoraEntrada { get; set; }
     }
 }

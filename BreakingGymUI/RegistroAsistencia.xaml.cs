@@ -1,5 +1,11 @@
-﻿using System;
+﻿using BreakingGymDAL;
+using BreakingGymEN;
+using BreakinGymBL;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
-using BreakinGymBL;
-using BreakingGymEN;
+
 
 namespace BreakingGymUI
 {
@@ -22,94 +26,121 @@ namespace BreakingGymUI
     /// </summary>
     public partial class RegistroAsistencia : MetroWindow
     {
-        RegistroAsistenciaBL _mostrarAsistencia = new RegistroAsistenciaBL();
-        RegistroAsistenciaEN _AsistenciaEN = new RegistroAsistenciaEN();
+
+        private RegistroAsistenciaBL _asistenciaBL = new RegistroAsistenciaBL();
+        private SerialPort _puerto;
+
         public RegistroAsistencia()
         {
             InitializeComponent();
-            CargarGrid();
+            CargarAsistencia();
+
+            // Configura el puerto COM (ver en el Administrador de Dispositivos cuál es)
+            _puerto = new SerialPort("COM3", 9600); // ⚠️ Cambia "COM3" si tu Arduino usa otro
+            _puerto.DataReceived += Puerto_DataReceived;
+            _puerto.Open();
         }
-        public void CargarGrid()
+
+        public void CargarAsistencia()
         {
-            DgAsistencia.ItemsSource = _mostrarAsistencia.MostrarAsistencia();
+            List<RegistroAsistenciaEN> lista = _asistenciaBL.MostrarAsistencia();
+            DgAsistencia.ItemsSource = lista;
         }
 
-        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        private void BtnRefrescar_Click(object sender, RoutedEventArgs e)
         {
-            // Validar cliente seleccionado
-            if (txtCliente.Text == null || !byte.TryParse(txtCliente.Text.ToString(), out byte idCliente))
+            CargarAsistencia();
+        }
+
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (DtBuscar.SelectedDate.HasValue)
             {
-                MessageBox.Show("Por favor, seleccione un cliente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                DateTime fechaAsistencia = DtBuscar.SelectedDate.Value;
+                List<RegistroAsistenciaEN> lista = _asistenciaBL.BuscarAsistencia(fechaAsistencia);
+                DgAsistencia.ItemsSource = lista;
             }
-
-            // Validar fecha (usando DatePicker)
-            if (!DtFecha.SelectedDate.HasValue)
+            else
             {
-                MessageBox.Show("Por favor, ingrese una fecha válida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                MessageBox.Show("Seleccione una fecha para buscar.");
             }
-            DateTime fechaAsistencia = DtFecha.SelectedDate.Value;
+        }
 
-            // Crear objeto
-            var asis = new RegistroAsistenciaEN()
+        private void Puerto_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
             {
-                IdCliente = idCliente,
-                FechaAsistencia = fechaAsistencia
-            };
+                string uid = _puerto.ReadLine().Trim();
+                Dispatcher.Invoke(() => RegistrarAsistencia(uid));
+            }
+            catch (Exception ex)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    MessageBox.Show("Error leyendo COM: " + ex.Message);
+                });
+            }
+        }
 
-            // Guardar inscripción
-            _mostrarAsistencia.GuardarInscripcion(asis);
+        private void RegistrarAsistencia(string uid)
+        {
+            try
+            {
+                using (SqlConnection conn = (SqlConnection)ComunBD.ObtenerConexion(ComunBD.TipoBD.SqlServer))
+                {
+                    // Abre la conexión si aún no está abierta
+                    if (conn.State != System.Data.ConnectionState.Open)
+                        conn.Open();
 
-            MessageBox.Show("Asistencia registrada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    // Buscar cliente con esa tarjeta
+                    using (SqlCommand cmd = new SqlCommand(
+                        "SELECT IdCliente FROM Cliente WHERE TarjetaRFID = @uid", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@uid", uid);
 
-            CargarGrid();
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            int idCliente = Convert.ToInt32(result);
+
+                            // Insertar asistencia
+                            using (SqlCommand cmdInsert = new SqlCommand(
+                                "INSERT INTO RegistroAsistencia(IdCliente, FechaAsistencia, HoraEntrada) " +
+                                "VALUES(@idCliente, GETDATE(), CONVERT(TIME, GETDATE()))", conn))
+                            {
+                                cmdInsert.Parameters.AddWithValue("@idCliente", idCliente);
+                                cmdInsert.ExecuteNonQuery();
+                            }
+
+                            Dispatcher.Invoke(() =>
+                            {
+                                MessageBox.Show($"✅ Asistencia registrada para Cliente {idCliente}");
+                                CargarAsistencia(); // refresca la grilla en UI
+                            });
+                        }
+                        else
+                        {
+                            Dispatcher.Invoke(() =>
+                            {
+                                MessageBox.Show("⚠️ Tarjeta no registrada en el sistema");
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    MessageBox.Show("❌ Error al registrar asistencia: " + ex.Message);
+                });
+            }
         }
 
         private void DgAsistencia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DgAsistencia.SelectedItem is RegistroAsistenciaEN filaSeleccionada)
-            {
-                txtId.Text = filaSeleccionada.Id.ToString();
-                txtCliente.Text = filaSeleccionada.IdCliente.ToString();
-            }
-        }
-       
-        private void BtnModificar_Click(object sender, RoutedEventArgs e)
-        {
-            // Validar que se haya seleccionado una fila
-            if (DgAsistencia.SelectedItem is RegistroAsistenciaEN filaSeleccionada)
-            {
-                // Validar cliente seleccionado
-                if (txtCliente.Text == null || !byte.TryParse(txtCliente.Text.ToString(), out byte idCliente))
-                {
-                    MessageBox.Show("Por favor, seleccione un cliente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                // Validar fecha (usando DatePicker)
-                if (!DtFecha.SelectedDate.HasValue)
-                {
-                    MessageBox.Show("Por favor, ingrese una fecha válida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                DateTime fechaAsistencia = DtFecha.SelectedDate.Value;
-                // Crear objeto
-                var asis = new RegistroAsistenciaEN()
-                {
-                    Id = filaSeleccionada.Id,
-                    IdCliente = idCliente,
-                    FechaAsistencia = fechaAsistencia
-                };
-                // Modificar asistencia
-                _mostrarAsistencia.ModificarAsistencia(asis);
-                MessageBox.Show("Asistencia modificada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                CargarGrid();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione una asistencia para modificar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
 
+        }
     }
 }
