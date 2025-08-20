@@ -37,7 +37,7 @@ namespace BreakingGymUI
         {
             var tipoDocumento = new TipoDocumentoEN
             {
-                Nombre = txtNombre.Text.Trim(),
+                Nombre = TxtNombre.Text.Trim(),
             };
 
             // Validar campo vacío
@@ -64,7 +64,7 @@ namespace BreakingGymUI
             _mostrarTipoDocumento.GuardarTipoDocumento(tipoDocumento);
 
             // Limpiar campo
-            txtNombre.Clear();
+            TxtNombre.Clear();
             CargarGrid();
 
             MessageBox.Show("Tipo Documento guardado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -104,7 +104,7 @@ namespace BreakingGymUI
             {
                 _mostrarTipoDocumento.EliminarTipoDocumento(docu);
                 txtId.Clear();
-                txtNombre.Clear();
+                TxtNombre.Clear();
                 CargarGrid();
 
                 MessageBox.Show("Estado eliminado correctamente.", "Éxito",
@@ -126,7 +126,7 @@ namespace BreakingGymUI
             var docu = new TipoDocumentoEN
             {
                 Id = Convert.ToByte(txtId.Text),
-                Nombre = txtNombre.Text.Trim(),
+                Nombre = TxtNombre.Text.Trim(),
             };
 
             if (docu.Id <= 0 || string.IsNullOrEmpty(docu.Nombre))
@@ -148,7 +148,7 @@ namespace BreakingGymUI
                 _mostrarTipoDocumento.ModificarTipoDocumento(docu);
 
                 txtId.Clear();
-                txtNombre.Clear();
+                TxtNombre.Clear();
                 CargarGrid();
 
                 MessageBox.Show("Estado modificado correctamente.", "Éxito",

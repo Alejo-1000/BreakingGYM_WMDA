@@ -41,12 +41,12 @@ namespace BreakingGymUI
         {
             var cliente = new ClienteEN
             {
-                IdRol = Convert.ToByte(cbxRol.SelectedValue),
-                IdTipoDocumento = Convert.ToByte(cbxdocumento.SelectedValue),
-                Documento = txtDocumento.Text.Trim(),
-                Nombre = txtNombre.Text.Trim(),
-                Apellido = txtApellido.Text.Trim(),
-                Celular = txtCelular.Text.Trim(),
+                IdRol = Convert.ToByte(CbxRol.SelectedValue),
+                IdTipoDocumento = Convert.ToByte(Cbxdocumento.SelectedValue),
+                Documento = TxtDocumento.Text.Trim(),
+                Nombre = TxtNombre.Text.Trim(),
+                Apellido = TxtApellido.Text.Trim(),
+                Celular = TxtCelular.Text.Trim(),
             };
 
             // Validar campos obligatorios
@@ -78,10 +78,10 @@ namespace BreakingGymUI
             _clienteBL.GuardarCliente(cliente);
 
             // Limpiar campos
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtCelular.Clear();
-            txtDocumento.Clear();
+            TxtNombre.Clear();
+            TxtApellido.Clear();
+            TxtCelular.Clear();
+            TxtDocumento.Clear();
 
             CargarGrid();
 
@@ -90,7 +90,7 @@ namespace BreakingGymUI
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text))
+            if (string.IsNullOrWhiteSpace(TxtId.Text))
             {
                 btnEliminar.IsEnabled = false;
                 MessageBox.Show("Por favor, Seleccione un Id.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -99,7 +99,7 @@ namespace BreakingGymUI
 
             var cli = new ClienteEN
             {
-                Id = Convert.ToByte(txtId.Text),
+                Id = Convert.ToByte(TxtId.Text),
             };
             if (cli.Id <= 0)
             {
@@ -116,11 +116,11 @@ namespace BreakingGymUI
             else
             {
                 _clienteBL.EliminarCliente(cli);
-                txtNombre.Clear();
-                txtCelular.Clear();
-                txtApellido.Clear();
-                txtId.Clear();
-                txtDocumento.Clear();
+                TxtNombre.Clear();
+                TxtCelular.Clear();
+                TxtApellido.Clear();
+                TxtId.Clear();
+                TxtDocumento.Clear();
                 CargarGrid();
                 MessageBox.Show("Cliente Eliminado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -129,20 +129,20 @@ namespace BreakingGymUI
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text))
+            if (string.IsNullOrWhiteSpace(TxtId.Text))
             {
                 MessageBox.Show("Por favor, Seleccione un Id.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             var cliente = new ClienteEN
             {
-                Id = Convert.ToByte(txtId.Text),
-                IdRol = Convert.ToByte(cbxRol.SelectedValue),
-                IdTipoDocumento = Convert.ToByte(cbxdocumento.SelectedValue),
-                Documento = txtDocumento.Text.Trim(),
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Celular = txtCelular.Text,
+                Id = Convert.ToByte(TxtId.Text),
+                IdRol = Convert.ToByte(CbxRol.SelectedValue),
+                IdTipoDocumento = Convert.ToByte(Cbxdocumento.SelectedValue),
+                Documento = TxtDocumento.Text.Trim(),
+                Nombre = TxtNombre.Text,
+                Apellido = TxtApellido.Text,
+                Celular = TxtCelular.Text,
 
             };
             if (string.IsNullOrEmpty(cliente.Nombre) || string.IsNullOrEmpty(cliente.Apellido) || string.IsNullOrEmpty(cliente.Celular) || cliente.IdRol <= 0 || cliente.IdTipoDocumento <= 0 || string.IsNullOrEmpty(cliente.Documento))
@@ -160,11 +160,11 @@ namespace BreakingGymUI
             else
             {
                 _clienteBL.ModificarCliente(cliente);
-                txtNombre.Clear();
-                txtCelular.Clear();
-                txtApellido.Clear();
-                txtId.Clear();
-                txtDocumento.Clear();
+                TxtNombre.Clear();
+                TxtCelular.Clear();
+                TxtApellido.Clear();
+                TxtId.Clear();
+                TxtDocumento.Clear();
                 CargarGrid();
                 MessageBox.Show(" Cliente modificado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -178,19 +178,19 @@ namespace BreakingGymUI
             {
                 DataRowView row = (DataRowView)dgCliente.SelectedItem;
 
-                txtId.Text = row["Id"].ToString();
-                cbxRol.Text = row["IdRol"].ToString();
-                cbxdocumento.Text = row["IdTipoDocumento"].ToString();
-                txtNombre.Text = row["Nombre"].ToString();
-                txtApellido.Text = row["Apellido"].ToString();
-                txtCelular.Text = row["Celular"].ToString();
-                txtDocumento.Text = row["Documento"].ToString();
+                TxtId.Text = row["Id"].ToString();
+                CbxRol.Text = row["IdRol"].ToString();
+                Cbxdocumento.Text = row["IdTipoDocumento"].ToString();
+                TxtNombre.Text = row["Nombre"].ToString();
+                TxtApellido.Text = row["Apellido"].ToString();
+                TxtCelular.Text = row["Celular"].ToString();
+               TxtDocumento.Text = row["Documento"].ToString();
             }
         }
 
         private void txtId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtId.Text))
+            if (!string.IsNullOrWhiteSpace(TxtId.Text))
             {
                 btnEliminar.IsEnabled = true;   // habilitar botón eliminar
                 btnModificar.IsEnabled = true;  // habilitar botón modificar

@@ -21,11 +21,11 @@
         <Label Content="Celular" HorizontalAlignment="Left" Margin="360,64,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Tipo de documento" HorizontalAlignment="Left" Margin="290,109,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Documento" HorizontalAlignment="Left" Margin="334,154,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="117,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
-        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="117,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="TxtNombre" HorizontalAlignment="Left" Margin="117,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="TxtApellido" HorizontalAlignment="Left" Margin="117,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
 
-        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Margin="438,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="txtDocumento" HorizontalAlignment="Left" Margin="438,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="TxtCelular" HorizontalAlignment="Left" Margin="438,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="TxtDocumento" HorizontalAlignment="Left" Margin="438,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <Label Content="Cliente" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Rounded MT Bold" Margin="0,-5,0,0"/>
         <Button x:Name="btnRegresar" Content="" HorizontalAlignment="Left" Margin="750,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.589,0.551" Width="40" Height="40" BorderBrush="{x:Null}">
             <Button.Background>
@@ -47,9 +47,9 @@
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
         </Button>
-        <ComboBox x:Name="cbxRol" HorizontalAlignment="Left" Height="26" Margin="117,154,0,0" VerticalAlignment="Top" Width="150"/>
-        <ComboBox x:Name="cbxdocumento" HorizontalAlignment="Left" Height="26" Margin="438,109,0,0" VerticalAlignment="Top" Width="158"/>
-        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="26" Margin="46,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="txtId_TextChanged"/>
+        <ComboBox x:Name="CbxRol" HorizontalAlignment="Left" Height="26" Margin="117,154,0,0" VerticalAlignment="Top" Width="150"/>
+        <ComboBox x:Name="Cbxdocumento" HorizontalAlignment="Left" Height="26" Margin="438,109,0,0" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="TxtId" HorizontalAlignment="Left" Height="26" Margin="46,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="txtId_TextChanged"/>
 
     </Grid>
 </mah:MetroWindow>

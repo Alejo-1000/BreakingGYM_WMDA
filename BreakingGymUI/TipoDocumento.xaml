@@ -30,7 +30,7 @@
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
         </Button>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="32" Margin="274,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312"/>
+        <TextBox x:Name="TxtNombre" HorizontalAlignment="Left" Height="32" Margin="274,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312"/>
         <Button x:Name="BtnRegresar" Content="" HorizontalAlignment="Left" Height="50" Margin="740,10,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/regreso.png"/>

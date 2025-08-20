@@ -170,7 +170,7 @@ namespace BreakingGymUI
         {
             if (!string.IsNullOrWhiteSpace(txtId.Text))
             {
-                txtLimpiar.IsEnabled = true;    // Habilitar el botón de limpiar al ingresar un ID
+                btnLimpiar.IsEnabled = true;    // Habilitar el botón de limpiar al ingresar un ID
                 btnModificar.IsEnabled = true;  // Habilitar el botón de modificar si hay un ID
                 btnEliminar.IsEnabled = true;   // Habilitar el botón de eliminar si hay un ID
             }
@@ -178,7 +178,7 @@ namespace BreakingGymUI
             {
                 btnModificar.IsEnabled = false; // Deshabilitar el botón de modificar si no hay ID
                 btnEliminar.IsEnabled = false;  // Deshabilitar el botón de eliminar si no hay ID
-                txtLimpiar.IsEnabled = false;   // Deshabilitar el botón de limpiar
+                btnLimpiar.IsEnabled = false;   // Deshabilitar el botón de limpiar
             }
 
         }

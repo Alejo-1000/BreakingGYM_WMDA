@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using BreakingGymEN;
 using BreakinGymBL;
-using BreakingGymDAL;
+
 
 namespace BreakingGymUI
 {
@@ -37,14 +37,14 @@ namespace BreakingGymUI
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (cbxIdServicio.SelectedValue == null || !byte.TryParse(cbxIdServicio.SelectedValue.ToString(), out byte idServicio))
+            if (CbxIdServicio.SelectedValue == null || !byte.TryParse(CbxIdServicio.SelectedValue.ToString(), out byte idServicio))
 {
     MessageBox.Show("Seleccione un servicio válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     return;
 }
 
 // Validar y convertir Precio
-string precioTexto = TxtPrecio.Text.Trim();
+string precioTexto = txtPrecio.Text.Trim();
 
 if (!int.TryParse(precioTexto, out int precio) || precio <= 0)
 {
@@ -53,9 +53,9 @@ if (!int.TryParse(precioTexto, out int precio) || precio <= 0)
 }
 
 // Validar campos de texto
-string nombre = TxtNombre.Text.Trim();
-string duracion = TxtDuracion.Text.Trim();
-string descripcion = TxtDescripcion.Text.Trim();
+string nombre = txtNombre.Text.Trim();
+string duracion = txtDuracion.Text.Trim();
+string descripcion = txtDescripcion.Text.Trim();
 
 if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(duracion) || string.IsNullOrEmpty(descripcion))
 {
@@ -92,10 +92,10 @@ var membresia = new MembresiaEN
 _mostrarMembresia.GuardarMembresia(membresia);
 
 // Limpiar campos
-TxtNombre.Clear();
-TxtDuracion.Clear();
-TxtPrecio.Clear();
-TxtDescripcion.Clear();
+txtNombre.Clear();
+txtDuracion.Clear();
+txtPrecio.Clear();
+txtDescripcion.Clear();
 
 MessageBox.Show("Membresía guardada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -143,23 +143,23 @@ CargarGrid();
             }
 
             // Validar servicio seleccionado
-            if (cbxIdServicio.SelectedValue == null || !byte.TryParse(cbxIdServicio.SelectedValue.ToString(), out byte idServicio))
+            if (CbxIdServicio.SelectedValue == null || !byte.TryParse(CbxIdServicio.SelectedValue.ToString(), out byte idServicio))
             {
                 MessageBox.Show("Seleccione un servicio válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             // Validar precio
-            if (!int.TryParse(TxtPrecio.Text.Trim(), out int precio) || precio <= 0)
+            if (!int.TryParse(txtPrecio.Text.Trim(), out int precio) || precio <= 0)
             {
                 MessageBox.Show("Ingrese un precio válido mayor a 0.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             // Validar campos de texto
-            string nombre = TxtNombre.Text.Trim();
-            string duracion = TxtDuracion.Text.Trim();
-            string descripcion = TxtDescripcion.Text.Trim();
+            string nombre = txtNombre.Text.Trim();
+            string duracion = txtDuracion.Text.Trim();
+            string descripcion = txtDescripcion.Text.Trim();
 
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(duracion) || string.IsNullOrEmpty(descripcion))
             {
@@ -192,10 +192,10 @@ CargarGrid();
 
             // Limpiar
             TxtId.Clear();
-            TxtNombre.Clear();
-            TxtDuracion.Clear();
-            TxtPrecio.Clear();
-            TxtDescripcion.Clear();
+            txtNombre.Clear();
+            txtDuracion.Clear();
+            txtPrecio.Clear();
+            txtDescripcion.Clear();
 
             CargarGrid();
 

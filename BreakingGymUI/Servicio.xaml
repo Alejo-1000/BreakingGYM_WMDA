@@ -41,7 +41,7 @@
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="137,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
         <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="136,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
         <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="25,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" TextChanged="txtId_TextChanged"/>
-        <Button x:Name="txtLimpiar" Content="Button" HorizontalAlignment="Left" Margin="692,374,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnLimpiar" Content="Button" HorizontalAlignment="Left" Margin="692,374,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </mah:MetroWindow>
