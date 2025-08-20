@@ -1,5 +1,10 @@
-﻿using System;
+﻿using BreakingGymEN;
+using BreakinGymBL;
+using MahApps.Metro.Controls;
+using QRCoder;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
-using BreakingGymEN;
-using BreakinGymBL;
+using DrawingBitmap = System.Drawing.Bitmap;
 
 
 namespace BreakingGymUI
@@ -25,6 +28,8 @@ namespace BreakingGymUI
     {
         MembresiaEN membresiaEN = new MembresiaEN();
         MembresiaBL _mostrarMembresia = new MembresiaBL();
+        public MembresiaEN membresiaParaImprimir;
+        MembresiaBL _membresiaBL = new MembresiaBL();
         public Membresia()
         {
             InitializeComponent();
@@ -220,6 +225,165 @@ CargarGrid();
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private DrawingVisual CrearTicketVisual(MembresiaEN membresia)
+        {
+            DrawingVisual dv = new DrawingVisual();
+            using (DrawingContext g = dv.RenderOpen())
+            {
+                double y = 50;
+
+                // --- LOGO ---
+                BitmapImage logito = new BitmapImage(
+     new Uri("pack://application:,,,/BreakingGymUI;component/LogoGod.png")
+ );
+                double logoWidth = 100;
+                double logoHeight = 100;
+                double logoX = (500 - logoWidth) / 2; // 500 es un ejemplo de ancho de ticket
+                g.DrawImage(logito, new Rect(logoX, y, logoWidth, logoHeight));
+                y += logoHeight + 10;
+
+                // --- Títulos ---
+                FormattedText titulo1 = new FormattedText(
+                    "BREAKING GYM",
+                    System.Globalization.CultureInfo.CurrentCulture,
+                    FlowDirection.LeftToRight,
+                    new Typeface("Times New Roman Bold"),
+                    16,
+                    Brushes.Black,
+                    VisualTreeHelper.GetDpi(this).PixelsPerDip);
+                double xTitulo1 = (500 - titulo1.Width) / 2;
+                g.DrawText(titulo1, new Point(xTitulo1, y));
+                y += titulo1.Height + 5;
+
+                FormattedText titulo2 = new FormattedText(
+                    "TICKET MEMBRESÍA",
+                    System.Globalization.CultureInfo.CurrentCulture,
+                    FlowDirection.LeftToRight,
+                    new Typeface("Times New Roman Bold"),
+                    12,
+                    Brushes.Black,
+                    VisualTreeHelper.GetDpi(this).PixelsPerDip);
+                double xTitulo2 = (500 - titulo2.Width) / 2;
+                g.DrawText(titulo2, new Point(xTitulo2, y));
+                y += titulo2.Height + 20;
+
+                // --- Datos ---
+                string[] datos =
+                {
+            $"Numero de membresia: {membresia.Id}",
+            $"Membresia: {membresia.Nombre}",
+            $"Servicio ID: {membresia.IdServicio}",
+            $"Precio: ${membresia.Precio}",
+            $"Duración: {membresia.Duracion}",
+            $"Descripción: {membresia.Descripcion}"
+        };
+
+                foreach (var texto in datos)
+                {
+                    FormattedText linea = new FormattedText(
+                        texto,
+                        System.Globalization.CultureInfo.CurrentCulture,
+                        FlowDirection.LeftToRight,
+                        new Typeface("Times New Roman"),
+                        10,
+                        Brushes.Black,
+                        VisualTreeHelper.GetDpi(this).PixelsPerDip);
+
+                    double x = (500 - linea.Width) / 2;
+                    g.DrawText(linea, new Point(x, y));
+                    y += linea.Height + 10;
+                }
+
+                // --- QR ---
+                string contenidoQR = string.Join("\n", datos);
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(contenidoQR, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                System.Drawing.Bitmap qrCodeBitmap = qrCode.GetGraphic(5);
+                BitmapImage qrWpfImage = BitmapToImageSource(qrCodeBitmap);
+
+                double qrSize = 120;
+                double qrX = (500 - qrSize) / 2;
+                g.DrawImage(qrWpfImage, new Rect(qrX, y, qrSize, qrSize));
+            }
+
+            return dv;
+        }
+        private BitmapImage BitmapToImageSource(DrawingBitmap bitmap)
+{
+        using (MemoryStream memory = new MemoryStream())
+    {
+        bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
+        memory.Position = 0;
+        BitmapImage bitmapimage = new BitmapImage();
+        bitmapimage.BeginInit();
+        bitmapimage.StreamSource = memory;
+        bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+        bitmapimage.EndInit();
+        return bitmapimage;
+    }
+}
+
+        private void btnCargar_Click(object sender, RoutedEventArgs e)
+        {
+            if (!int.TryParse(TxtId.Text, out int idMembresia))
+            {
+                MessageBox.Show("Ingrese un Id válido.");
+                return;
+            }
+
+            var membresias = _membresiaBL.MostrarMembresia();
+            var memb = membresias.FirstOrDefault(m => m.Id == idMembresia);
+
+            if (memb == null)
+            {
+                MessageBox.Show("No se encontró la membresía.");
+                return;
+            }
+
+            membresiaParaImprimir = memb;
+
+            txtNombre.Text = memb.Nombre;
+            txtDuracion.Text = memb.Duracion;
+            txtPrecio.Text = memb.Precio.ToString();
+            txtDescripcion.Text = memb.Descripcion;
+            CbxIdServicio.SelectedValue = memb.IdServicio;
+
+            MessageBox.Show("Membresía cargada. Ahora puede imprimir.");
+        }
+
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            // 1️⃣ Validar que haya una membresía cargada
+            if (membresiaParaImprimir == null)
+            {
+                MessageBox.Show("Cargue primero una membresía.");
+                return;
+            }
+
+            // 2️⃣ Crear el diálogo de impresión de WPF
+            PrintDialog pd = new PrintDialog();
+
+            if (pd.ShowDialog() == true)
+            {
+                // 3️⃣ Crear el ticket como DrawingVisual
+                DrawingVisual ticket = CrearTicketVisual(membresiaParaImprimir);
+
+                // 4️⃣ Enviar a la impresora
+                pd.PrintVisual(ticket, "Ticket Membresía");
+            }
+
+            // 5️⃣ Limpiar campos de la UI
+            TxtId.Clear();
+            txtNombre.Clear();
+            txtDuracion.Clear();
+            CbxIdServicio.SelectedIndex = -1;
+            txtPrecio.Clear();
+            txtDescripcion.Clear();
+
+            // 6️⃣ Limpiar la variable de membresía para imprimir
+            membresiaParaImprimir = null;
         }
     }
 }

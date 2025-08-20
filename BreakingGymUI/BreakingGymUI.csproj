@@ -23,6 +23,7 @@
     <None Remove="inscripcion.png" />
     <None Remove="lista-de-contactos.png" />
     <None Remove="Login.jpg" />
+    <None Remove="LogoGod.png" />
     <None Remove="mas.png" />
     <None Remove="ojo_abierto.png" />
     <None Remove="ojo_cerrado.png" />
@@ -35,6 +36,7 @@
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 
@@ -58,6 +60,7 @@
     <Resource Include="inscripcion.png" />
     <Resource Include="lista-de-contactos.png" />
     <Resource Include="Login.jpg" />
+    <Resource Include="LogoGod.png" />
     <Resource Include="mas.png" />
     <Resource Include="ojo_abierto.png" />
     <Resource Include="ojo_cerrado.png" />

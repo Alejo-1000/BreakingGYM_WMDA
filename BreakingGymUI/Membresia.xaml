@@ -76,8 +76,8 @@
                 <MenuItem.Background>
                     <ImageBrush ImageSource="/printer.png"/>
                 </MenuItem.Background>
-                <MenuItem Header="Cargar Archivo" Background="#FF28628C"/>
-                <MenuItem x:Name="btnImprimir" Header="Imprimir" Background="#FF28628C" />
+                <MenuItem x:Name="btnCargar"  Header="Cargar Archivo" Background="#FF28628C" Click="btnCargar_Click"/>
+                <MenuItem x:Name="btnImprimir" Header="Imprimir" Background="#FF28628C" Click="btnImprimir_Click" />
             </MenuItem>
 
         </Menu>
