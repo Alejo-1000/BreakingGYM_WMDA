@@ -14,39 +14,42 @@
                 <GradientStop Color="#FF28628C"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="46,204,204,26"/>
+        <DataGrid x:Name="dgCliente" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="46,204,204,26" SelectionChanged="dgCliente_SelectionChanged" />
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="46,62,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" RenderTransformOrigin="0.528,0.546" FontSize="14"/>
         <Label Content="Apellido" HorizontalAlignment="Left" Margin="46,109,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Rol" HorizontalAlignment="Left" Margin="74,154,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Celular" HorizontalAlignment="Left" Margin="360,64,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Tipo de documento" HorizontalAlignment="Left" Margin="290,109,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
         <Label Content="Documento" HorizontalAlignment="Left" Margin="334,154,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="117,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
-        <TextBox HorizontalAlignment="Left" Margin="117,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
-        <TextBox HorizontalAlignment="Left" Margin="117,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
-        <TextBox HorizontalAlignment="Left" Margin="438,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox HorizontalAlignment="Left" Margin="438,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox HorizontalAlignment="Left" Margin="438,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="117,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="117,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
+        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Margin="438,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="txtDocumento" HorizontalAlignment="Left" Margin="438,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <Label Content="Cliente" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Rounded MT Bold" Margin="0,-5,0,0"/>
         <Button x:Name="btnRegresar" Content="" HorizontalAlignment="Left" Margin="750,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.589,0.551" Width="40" Height="40" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/regreso.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="692,149,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnGuardar" Content="" HorizontalAlignment="Left" Margin="692,149,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}" Click="btnGuardar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/mas.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Margin="692,239,0,0" VerticalAlignment="Top" Height="51" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Margin="692,239,0,0" VerticalAlignment="Top" Height="51" Width="50" BorderBrush="{x:Null}" Click="btnEliminar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/eliminar (2).png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Margin="691,330,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Margin="691,330,0,0" VerticalAlignment="Top" Height="50" Width="50" BorderBrush="{x:Null}" Click="btnModificar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
         </Button>
+        <ComboBox x:Name="cbxRol" HorizontalAlignment="Left" Height="26" Margin="117,154,0,0" VerticalAlignment="Top" Width="150"/>
+        <ComboBox x:Name="cbxdocumento" HorizontalAlignment="Left" Height="26" Margin="438,109,0,0" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="26" Margin="46,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" TextChanged="txtId_TextChanged"/>
+
     </Grid>
 </mah:MetroWindow>

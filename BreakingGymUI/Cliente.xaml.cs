@@ -1,5 +1,9 @@
-﻿using System;
+﻿using BreakingGymEN;
+using BreakinGymBL;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +15,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
 namespace BreakingGymUI
 {
@@ -19,10 +22,187 @@ namespace BreakingGymUI
     /// Lógica de interacción para Cliente.xaml
     /// </summary>
     public partial class Cliente : MetroWindow
+
     {
+        ClienteBL _clienteBL = new ClienteBL();
+        ClienteEN clienteEN = new ClienteEN();
+
         public Cliente()
         {
             InitializeComponent();
+            CargarGrid();
+        }
+        private void CargarGrid()
+        {
+           dgCliente.ItemsSource = _clienteBL.MostrarCliente();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            var cliente = new ClienteEN
+            {
+                IdRol = Convert.ToByte(cbxRol.SelectedValue),
+                IdTipoDocumento = Convert.ToByte(cbxdocumento.SelectedValue),
+                Documento = txtDocumento.Text.Trim(),
+                Nombre = txtNombre.Text.Trim(),
+                Apellido = txtApellido.Text.Trim(),
+                Celular = txtCelular.Text.Trim(),
+            };
+
+            // Validar campos obligatorios
+            if (cliente.IdRol <= 0 || cliente.IdTipoDocumento <= 0 ||
+                string.IsNullOrEmpty(cliente.Documento) ||
+                string.IsNullOrEmpty(cliente.Nombre) ||
+                string.IsNullOrEmpty(cliente.Apellido) ||
+                string.IsNullOrEmpty(cliente.Celular))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Obtener lista de clientes existentes
+            var listaClientes = _clienteBL.MostrarCliente(); // Este método debe devolver la lista completa de clientes
+
+            // Validar duplicado (solo por Documento, ignorando mayúsculas/minúsculas)
+            bool yaExiste = listaClientes.Any(c =>
+                c.Documento.Equals(cliente.Documento, StringComparison.OrdinalIgnoreCase)
+            );
+
+            if (yaExiste)
+            {
+                MessageBox.Show("Ya existe un cliente con ese documento. No se puede duplicar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Guardar cliente
+            _clienteBL.GuardarCliente(cliente);
+
+            // Limpiar campos
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtCelular.Clear();
+            txtDocumento.Clear();
+
+            CargarGrid();
+
+            MessageBox.Show("Cliente guardado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtId.Text))
+            {
+                btnEliminar.IsEnabled = false;
+                MessageBox.Show("Por favor, Seleccione un Id.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var cli = new ClienteEN
+            {
+                Id = Convert.ToByte(txtId.Text),
+            };
+            if (cli.Id <= 0)
+            {
+                MessageBox.Show("Por favor, Seleccione un Id.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            var confirmResult = MessageBox.Show("¿Estás seguro que deseas eliminar este Cliente?",
+                                               "Confirmar modificación",
+                                               MessageBoxButton.YesNo,
+                                               MessageBoxImage.Question);
+
+            if (confirmResult == MessageBoxResult.No)
+                return;
+            else
+            {
+                _clienteBL.EliminarCliente(cli);
+                txtNombre.Clear();
+                txtCelular.Clear();
+                txtApellido.Clear();
+                txtId.Clear();
+                txtDocumento.Clear();
+                CargarGrid();
+                MessageBox.Show("Cliente Eliminado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtId.Text))
+            {
+                MessageBox.Show("Por favor, Seleccione un Id.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            var cliente = new ClienteEN
+            {
+                Id = Convert.ToByte(txtId.Text),
+                IdRol = Convert.ToByte(cbxRol.SelectedValue),
+                IdTipoDocumento = Convert.ToByte(cbxdocumento.SelectedValue),
+                Documento = txtDocumento.Text.Trim(),
+                Nombre = txtNombre.Text,
+                Apellido = txtApellido.Text,
+                Celular = txtCelular.Text,
+
+            };
+            if (string.IsNullOrEmpty(cliente.Nombre) || string.IsNullOrEmpty(cliente.Apellido) || string.IsNullOrEmpty(cliente.Celular) || cliente.IdRol <= 0 || cliente.IdTipoDocumento <= 0 || string.IsNullOrEmpty(cliente.Documento))
+            {
+                MessageBox.Show("Por favor, Complete todos los campos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            var confirmResult = MessageBox.Show("¿Estás seguro que deseas modificar este Cliente?",
+                                               "Confirmar modificación",
+                                               MessageBoxButton.YesNo,
+                                               MessageBoxImage.Question);
+
+            if (confirmResult == MessageBoxResult.No)
+                return;
+            else
+            {
+                _clienteBL.ModificarCliente(cliente);
+                txtNombre.Clear();
+                txtCelular.Clear();
+                txtApellido.Clear();
+                txtId.Clear();
+                txtDocumento.Clear();
+                CargarGrid();
+                MessageBox.Show(" Cliente modificado correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+        }
+
+        private void dgCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (dgCliente.SelectedItem != null)
+            {
+                DataRowView row = (DataRowView)dgCliente.SelectedItem;
+
+                txtId.Text = row["Id"].ToString();
+                cbxRol.Text = row["IdRol"].ToString();
+                cbxdocumento.Text = row["IdTipoDocumento"].ToString();
+                txtNombre.Text = row["Nombre"].ToString();
+                txtApellido.Text = row["Apellido"].ToString();
+                txtCelular.Text = row["Celular"].ToString();
+                txtDocumento.Text = row["Documento"].ToString();
+            }
+        }
+
+        private void txtId_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtId.Text))
+            {
+                btnEliminar.IsEnabled = true;   // habilitar botón eliminar
+                btnModificar.IsEnabled = true;  // habilitar botón modificar
+            }
+
+            else
+            {
+                btnEliminar.IsEnabled = false;
+                btnModificar.IsEnabled = false;
+
+            }
         }
     }
+    
 }
