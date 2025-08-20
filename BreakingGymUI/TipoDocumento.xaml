@@ -14,23 +14,23 @@
                 <GradientStop Color="#FF28628C" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="251" Margin="47,152,0,0" VerticalAlignment="Top" Width="605" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button x:Name="BtnGuardar" Content="" HorizontalAlignment="Left" Height="50" Margin="708,152,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}">
+        <DataGrid x:Name="dgMostrarTipoDocumento" HorizontalAlignment="Left" Height="217" Margin="47,152,0,0" VerticalAlignment="Top" Width="605" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="btnGuardar" Content="" HorizontalAlignment="Left" Height="50" Margin="708,152,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Click="btnGuardar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/mas.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnEliminar" Content="" HorizontalAlignment="Left" Height="50" Margin="708,252,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnEliminar" Content="" HorizontalAlignment="Left" Height="50" Margin="708,252,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Click="btnEliminar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/eliminar (2).png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnModificar" Content="" HorizontalAlignment="Left" Height="50" Margin="708,344,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}">
+        <Button x:Name="btnModificar" Content="" HorizontalAlignment="Left" Height="50" Margin="708,344,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}" Click="btnModificar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/editar-texto.png"/>
             </Button.Background>
         </Button>
-        <TextBox x:Name="TxtTipoDocumento" HorizontalAlignment="Left" Height="32" Margin="274,98,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="312"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="32" Margin="274,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312"/>
         <Button x:Name="BtnRegresar" Content="" HorizontalAlignment="Left" Height="50" Margin="740,10,0,0" VerticalAlignment="Top" Width="50" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/regreso.png"/>
@@ -38,6 +38,8 @@
         </Button>
         <Label Content="Tipo de documento" HorizontalAlignment="Left" Height="40" Margin="19,94,0,0" VerticalAlignment="Top" Width="238" FontFamily="Arial Rounded MT Bold" FontSize="24" Foreground="White"/>
         <Label Content="Documentos" HorizontalAlignment="Left" Height="69" Margin="224,-9,0,0" VerticalAlignment="Top" Width="375" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="60"/>
+        <Button x:Name="btnLimpiar" Content="Button" HorizontalAlignment="Left" Margin="599,398,0,10"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="19,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" TextChanged="txtId_TextChanged"/>
 
     </Grid>
 </mah:MetroWindow>

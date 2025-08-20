@@ -127,7 +127,18 @@ namespace BreakingGymUI
 
         private void txtId_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(txtId.Text))
+            {
+                btnEliminar.IsEnabled = true;   // Habilitar botón eliminar si hay un Id
+                btnModificar.IsEnabled = true;  // Habilitar botón modificar si hay un Id
+                btnLimpiar.IsEnabled = true;    // Habilitar el botón de limpiar
+            }
+            else
+            {
+                btnEliminar.IsEnabled = false;  // Deshabilitar si no hay Id
+                btnModificar.IsEnabled = false; // Deshabilitar si no hay Id
+                btnLimpiar.IsEnabled = false;   // Deshabilitar el botón de limpiar
+            }
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
