@@ -186,5 +186,12 @@ namespace BreakingGymUI
                                 "Error",MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtId.Clear();
+            txtNombre.Clear();
+
+        }
     }
 }

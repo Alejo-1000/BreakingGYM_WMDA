@@ -48,7 +48,7 @@
             </Button.Background>
         </Button>
         <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="26,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" TextChanged="txtId_TextChanged"/>
-        <Button x:Name="btnLimpiar" Content="Button" HorizontalAlignment="Left" Margin="564,397,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnLimpiar" Content="Button" HorizontalAlignment="Left" Margin="564,397,0,0" VerticalAlignment="Top" Click="btnLimpiar_Click"/>
 
     </Grid>
 </mah:MetroWindow>
