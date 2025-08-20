@@ -228,18 +228,19 @@ CargarGrid();
         }
         private DrawingVisual CrearTicketVisual(MembresiaEN membresia)
         {
+            double anchoTicket = 280; // <<-- define el ancho real de tu ticket
             DrawingVisual dv = new DrawingVisual();
             using (DrawingContext g = dv.RenderOpen())
             {
-                double y = 50;
+                double y = 20;
 
                 // --- LOGO ---
                 BitmapImage logito = new BitmapImage(
-     new Uri("pack://application:,,,/BreakingGymUI;component/LogoGod.png")
- );
+                    new Uri("pack://application:,,,/BreakingGymUI;component/LogoGod.png")
+                );
                 double logoWidth = 100;
                 double logoHeight = 100;
-                double logoX = (500 - logoWidth) / 2; // 500 es un ejemplo de ancho de ticket
+                double logoX = (anchoTicket - logoWidth) / 2;
                 g.DrawImage(logito, new Rect(logoX, y, logoWidth, logoHeight));
                 y += logoHeight + 10;
 
@@ -252,7 +253,7 @@ CargarGrid();
                     16,
                     Brushes.Black,
                     VisualTreeHelper.GetDpi(this).PixelsPerDip);
-                double xTitulo1 = (500 - titulo1.Width) / 2;
+                double xTitulo1 = (anchoTicket - titulo1.Width) / 2;
                 g.DrawText(titulo1, new Point(xTitulo1, y));
                 y += titulo1.Height + 5;
 
@@ -264,7 +265,7 @@ CargarGrid();
                     12,
                     Brushes.Black,
                     VisualTreeHelper.GetDpi(this).PixelsPerDip);
-                double xTitulo2 = (500 - titulo2.Width) / 2;
+                double xTitulo2 = (anchoTicket - titulo2.Width) / 2;
                 g.DrawText(titulo2, new Point(xTitulo2, y));
                 y += titulo2.Height + 20;
 
@@ -290,7 +291,7 @@ CargarGrid();
                         Brushes.Black,
                         VisualTreeHelper.GetDpi(this).PixelsPerDip);
 
-                    double x = (500 - linea.Width) / 2;
+                    double x = (anchoTicket - linea.Width) / 2;
                     g.DrawText(linea, new Point(x, y));
                     y += linea.Height + 10;
                 }
@@ -304,12 +305,13 @@ CargarGrid();
                 BitmapImage qrWpfImage = BitmapToImageSource(qrCodeBitmap);
 
                 double qrSize = 120;
-                double qrX = (500 - qrSize) / 2;
+                double qrX = (anchoTicket - qrSize) / 2;
                 g.DrawImage(qrWpfImage, new Rect(qrX, y, qrSize, qrSize));
             }
 
             return dv;
         }
+
         private BitmapImage BitmapToImageSource(DrawingBitmap bitmap)
 {
         using (MemoryStream memory = new MemoryStream())
