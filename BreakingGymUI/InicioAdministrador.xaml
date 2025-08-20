@@ -69,7 +69,7 @@
                 <MenuItem Header="" Background="{x:Null}" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13" Height="41" Width="51" Click="MenuItem_Click">
 
                     <MenuItem x:Name="btnSalir" Header="Salir del Sistema" Background="#FF28628C" Click="btnSalir_Click"/>
-                    <MenuItem x:Name="btnCerrarSesion" Header="Cerrar Sesión" Background="#FF28628C"/>
+                    <MenuItem x:Name="btnCerrarSesion" Header="Cerrar Sesión" Background="#FF28628C" Click="btnCerrarSesion_Click"/>
                 </MenuItem>
             </Menu>
 

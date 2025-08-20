@@ -27,6 +27,7 @@
     <None Remove="ojo_abierto.png" />
     <None Remove="ojo_cerrado.png" />
     <None Remove="opcion.png" />
+    <None Remove="printer.png" />
     <None Remove="registro-en-linea.png" />
     <None Remove="regreso.png" />
     <None Remove="tarifa.png" />
@@ -61,6 +62,7 @@
     <Resource Include="ojo_abierto.png" />
     <Resource Include="ojo_cerrado.png" />
     <Resource Include="opcion.png" />
+    <Resource Include="printer.png" />
     <Resource Include="registro-en-linea.png" />
     <Resource Include="regreso.png" />
     <Resource Include="tarifa.png" />

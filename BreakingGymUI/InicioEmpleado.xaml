@@ -42,7 +42,7 @@
                 </Menu.Background>
                 <MenuItem Header="" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="13" Height="40" Width="42" Background="{x:Null}">
                     <MenuItem x:Name="btnSalir" Header="Salir del Sistema" Background="#FF28628C" Click="btnSalir_Click" />
-                    <MenuItem x:Name="btnCerrarSesion" Header="Cerrar Sesión" Background="#FF28628C"/>
+                    <MenuItem x:Name="btnCerrarSesion" Header="Cerrar Sesión" Background="#FF28628C" Click="btnCerrarSesion_Click"/>
                 </MenuItem>
             </Menu>
             <GridSplitter Background="#FFAEAEB2"  DockPanel.Dock="Right" Width="2"/>

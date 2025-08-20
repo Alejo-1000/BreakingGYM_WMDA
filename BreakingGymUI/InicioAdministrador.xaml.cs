@@ -96,5 +96,13 @@ namespace BreakingGymUI
         {
 
         }
+
+        private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            this.Close(); // Cierra la ventana actual
+            login.Show();
+
+        }
     }
 }
